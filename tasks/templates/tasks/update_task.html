@@ -1,7 +1,10 @@
-<h3>update task</h3>
+<h2>Update Task</h2>
 
-<form method = "POST" action = "/">
+<form method = "POST" action = "">
 	{% csrf_token %}
 	{{form}}
-	<input type="submit" name = "update_task">
+	<br>
+	<br>
+	<a href = "{% url 'List' %}"><button type = "button" >Cancel</button></a>
+	<input type="submit" name = "update_task" value = "Update">
 </form>

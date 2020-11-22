@@ -1,0 +1,10 @@
+<h2>Detele Task?</h2>
+<p>Are you sure you want to delete "{{item}}"?</p>
+
+
+
+<form method = "POST" action = ''>
+	{% csrf_token %}
+	<a href = "{% url 'List' %}"><button type="button" >No</button></a>
+	<input type = "submit" name = "confirm" value = "Yes">
+</form>

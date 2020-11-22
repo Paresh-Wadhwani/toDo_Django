@@ -1,15 +1,20 @@
-<h3>todo</h3>
+<h2>To Do</h2>
 
 <form method = "POST" action = "/">
 	{% csrf_token %}
 	{{form.title}}
-	<input type = "submit" name = "Creata Task">
+	<input type = "submit" name = "Creata Task" value = "Add">
 </form>
 
 
 {% for task in tasks %}
 	<div>
-		<a href = "{% url 'update_task' task.id %}">Update</a>
-		<p>{{task}}</p>
+		<a href = "{% url 'update_task' task.id %}">Update</a> | 
+		<a href = "{% url 'delete_task' task.id %}">Delete</a> | 
+		{% if task.complete %}
+			<strike>{{task}}</strike>
+		{% else %}
+			<span>{{task}}</span>
+		{% endif %}
 	</div>
 {% endfor %}
